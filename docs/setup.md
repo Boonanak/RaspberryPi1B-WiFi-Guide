@@ -53,7 +53,7 @@ ifconfig wlan0
 
 Look for an `inet` entry. If it is missing, the Pi failed to connect.
 
-To manually reconnect:
+To manually obtain an IP address:
 
 ```bash
 sudo dhclient wlan0
