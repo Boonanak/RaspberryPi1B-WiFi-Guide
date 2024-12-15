@@ -38,7 +38,7 @@ Restart the network:
 sudo systemctl restart networking
 ```
 
-### 1.3 Reduce Channel Interference
+### Reduce Channel Interference
 - **Router Settings:** Configure your router to use a less crowded Wi-Fi channel. Tools like `iwlist` or a Wi-Fi analyzer app can help identify the best channel.
 
 ---
