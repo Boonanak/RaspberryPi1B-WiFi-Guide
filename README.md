@@ -19,4 +19,3 @@ This repository provides a step-by-step guide to connecting a Raspberry Pi 1 B t
 1. [Setup Instructions](docs/setup.md)  
 2. [Troubleshooting](docs/troubleshooting.md)  
 3. [Optimizations](docs/optimizations.md)
-4. [Images](images/)  
