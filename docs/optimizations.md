@@ -88,9 +88,11 @@ Increase the swap file size to prevent memory bottlenecks:
 ### Optimize Boot Time
 Reduce boot time by disabling graphical boot splash screens:
 1. Edit the boot configuration:
+
    ```bash
    sudo nano /boot/cmdline.txt
    ```
+   
 2. Remove `quiet` and `splash` from the file.
 
 ---
