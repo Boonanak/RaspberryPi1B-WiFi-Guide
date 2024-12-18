@@ -16,6 +16,8 @@ This guide outlines key optimizations you can implement to improve the performan
 
   Look for `Signal level` and `Quality` to identify the optimal placement.
 
+![Observation of Quality and Signal level](/images/IMG_8583.jpg)
+
 ### Static IP Configuration
 Setting a static IP can reduce connection delays. Edit the `dhcpcd.conf` file:
 

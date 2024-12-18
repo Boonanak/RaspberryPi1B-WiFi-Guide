@@ -8,6 +8,8 @@ This guide will walk you through the steps to connect your Raspberry Pi 1 B to a
 2. Power up the Raspberry Pi using the micro-USB power supply.
 3. Wait for the Raspberry Pi to boot into Raspbian.
 
+![Hardware Setup](/images/IMG_8580.jpg)
+
 ## Step 2: Install Necessary Drivers
 
 Some older Wi-Fi dongles might require additional drivers. Check the manufacturer's website or forums for instructions. However, this demonstration will be done with the Ralink RT5370 USB Wi-Fi adapter which should not require any additional drivers to be installed.
@@ -33,6 +35,16 @@ network={
 }
 ```
 
+![wpa_supplicant.conf file contents](/images/IMG_8581.jpg)
+
+However if you created the wpa_supplicant.conf file with the incorrect syntax it will be reflected below when you try to initialize wpa_supplicant, (here I intentionally made a spelling error with ssid). You can always run wpa_supplicant manually in the background with the following command.
+
+```bash
+sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -B
+```
+
+![error in syntax of wpa_supplicant.conf file](/images/IMG_8591.jpg)
+
 3. Save and exit the file (press CTRL+O, Enter, and CTRL+X).
 
 ## Step 4: Restart the Networking Service
@@ -51,6 +63,8 @@ Verify the connection by checking if the interface received an IP address:
 ifconfig wlan0
 ```
 
+![ifconfig wlan0 output](/images/IMG_8587.jpg)
+
 Look for an `inet` entry. If it is missing, the Pi failed to connect.
 
 To manually obtain an IP address:
@@ -59,6 +73,10 @@ To manually obtain an IP address:
 sudo dhclient wlan0
 ```
 
+![incorrect sudo dhclient wlan0 output](/images/IMG_8590.jpg)
+
+If you entered the incorrect ssid or psk it will be reflected in the above message.
+
 ## Step 6: Test the Connection
 
 Ping a website to confirm the connection:
@@ -66,6 +84,8 @@ Ping a website to confirm the connection:
 ```bash
 ping -c 4 google.com
 ```
+
+![pinging google.com](/images/IMG_8588.jpg)
 
 Or alternatively, ping a known public IP address:
 

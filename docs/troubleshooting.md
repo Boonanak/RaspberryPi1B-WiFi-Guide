@@ -10,13 +10,17 @@ This guide outlines useful commands and checks to help debug and resolve issues 
 lsusb
 ```
 
-- **Description**: Lists all USB devices connected to the Raspberry Pi. Use this to confirm that your Wi-Fi dongle is recognized.
+![sudo iwlist wlan0 scan and lsusb output](/images/IMG_8593.jpg)
+
+- **Description**: Lists all USB devices connected to the Raspberry Pi. Use this to confirm that your Wi-Fi dongle is recognized. In the instance of this image I intentionally removed the Wi-Fi dongle which explains why it is not listed when lsusb is ran and the interface doesn't support scanning is returned when sudo iwlist wlan0 scan is ran.
 
 ### Check Kernel Messages for WLAN
 
 ```bash
 sudo dmesg | grep wlan0
 ```
+
+![sudo dmesg | grep wlan0 output](/images/IMG_8584.jpg)
 
 - **Description**: Displays kernel messages related to the `wlan0` interface. Use this to identify errors or logs for your Wi-Fi connection.
 
@@ -34,6 +38,9 @@ sudo ifconfig wlan0 up
 ```bash
 dmesg | grep usb
 ```
+
+![dmesg | grep usb output 1](/images/IMG_8585.jpg)
+![dmesg | grep usb output 2](/images/IMG_8586.jpg)
 
 - **Description**: Displays kernel messages related to USB devices. Use this to check if your Wi-Fi dongle was detected correctly.
 
@@ -61,6 +68,8 @@ sudo apt-get install firmware-ralink
 sudo iwlist wlan0 scan
 ```
 
+![sudo iwlist wlan0 scan output](/images/IMG_8583.jpg)
+
 - **Description**: Lists available Wi-Fi networks. Check signal strength and quality for your desired network.
 
 ### View Logs for wpa_supplicant
@@ -77,6 +86,8 @@ sudo journalctl -u wpa_supplicant
 ifconfig wlan0
 ```
 
+![ifconfig wlan0 output](/images/IMG_8587.jpg)
+
 - **Description**: Shows the configuration of the `wlan0` interface. Look for the `inet` field to confirm if an IP address was assigned.
 
 ### Check Wireless Configuration
@@ -84,6 +95,8 @@ ifconfig wlan0
 ```bash
 iwconfig wlan0
 ```
+
+![iwconfig wlan0 output](/images/IMG_8582.jpg)
 
 - **Description**: Displays wireless interface settings, such as ESSID and signal strength.
 
@@ -106,12 +119,11 @@ iwconfig wlan0
    ifconfig wlan0
    ```
    
+![ifconfig wlan0 output](/images/IMG_8587.jpg)
+   
    Look for the `ether` field.
 4. **Wi-Fi Band**: Ensure your Wi-Fi dongle supports the router's band (typically 2.4 GHz).
 5. **Signal Strength**: Ensure the Raspberry Pi is within range and there are minimal obstructions.
-
-### Optimize Signal Strength
-- Use `sudo iwlist wlan0 scan` to check signal quality. A low signal level or quality below `50/70` may cause connection issues.
 
 ---
 
